@@ -1,0 +1,337 @@
+body {
+  margin: 0;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  overscroll-behavior: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+canvas {
+  display: block;
+  overscroll-behavior: none;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+#info {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1; /* TODO Solve this in HTML */
+}
+
+a,
+button,
+input,
+select {
+  pointer-events: auto;
+}
+
+.dg.ac {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+#overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#overlay button {
+  background: #ffffff;
+  border: 0;
+  color: #000000;
+  padding: 16px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#notSupported {
+  width: 50%;
+  margin: auto;
+  background-color: #f00;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#tooltip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 100px;
+  text-align: center;
+  padding: 5px 12px;
+  font-family: monospace;
+  background: #ffffff;
+  display: none;
+  opacity: 0;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.25s linear;
+  border-radius: 3px;
+}
+
+#joystick-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 125px;
+  height: 125px;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  text-align: center;
+  border-radius: 100%;
+  display: flex; /* [1] */
+  justify-content: center; /* [2] */
+  align-items: center;
+  visibility: hidden;
+  opacity: 1;
+}
+
+#joystick {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  cursor: pointer;
+  height: 45%;
+  user-select: none;
+  width: 45%;
+  margin: 0 auto;
+  visibility: hidden;
+  opacity: 1;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.preload-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0.9;
+}
+
+.postload {
+  visibility: hidden;
+  display: none;
+}
+
+.bottom-webgl-text-div {
+  position: absolute;
+  bottom: 15vh;
+  text-align: center;
+}
+
+.bottom-webgl-text {
+  padding: 0px 0px 0px 0px;
+}
+
+.start-page-text {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  font-size: calc(24px + (20 - 18) * (100vw - 400px) / (800 - 400));
+}
+
+.ryan-text {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  font-size: calc(32px + (24 - 18) * (100vw - 400px) / (800 - 400));
+}
+
+.start-page-content-div {
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+}
+
+#start-button {
+  margin: 0 auto;
+  margin-bottom: 20vh;
+  font-size: 25px;
+  background-color: grey;
+  border: none;
+  color: #fffc00;
+  border-radius: 12px;
+  padding: 15px 30px 15px 30px;
+  -webkit-appearance: none;
+  -webkit-border-radius: none;
+  outline: none;
+  transition: 0.25s;
+}
+
+#start-button:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
+/*
+.interactive-site-text {
+  margin: 50px 50px 50px 50px;
+}
+
+.joystick-directions-text {
+  padding: 0px 30px 0px 30px;
+}
+
+.junior-engineer {
+  margin-bottom: 50px;
+}*/
+
+.yellow-text {
+  color: #fffc00;
+}
+
+#static-site-link {
+  text-decoration: underline;
+  color: white;
+}
+
+.trinity-rings-spinner,
+.trinity-rings-spinner * {
+  box-sizing: border-box;
+}
+
+.trinity-rings-spinner {
+  height: 500px;
+  width: 500px;
+  padding: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.trinity-rings-spinner .circle {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  border: 10px solid #fffc00;
+}
+
+.trinity-rings-spinner .circle:nth-child(1) {
+  height: 350px;
+  width: 350px;
+  animation: trinity-rings-spinner-circle1-animation 1.5s infinite linear;
+  border-width: 10px;
+  opacity: 0.9;
+}
+.trinity-rings-spinner .circle:nth-child(2) {
+  height: calc(350px * 0.65);
+  width: calc(350px * 0.65);
+  animation: trinity-rings-spinner-circle2-animation 1.5s infinite linear;
+  border-width: 8px;
+  opacity: 0.7;
+}
+.trinity-rings-spinner .circle:nth-child(3) {
+  height: calc(350px * 0.45);
+  width: calc(350px * 0.45);
+  animation: trinity-rings-spinner-circle3-animation 1.5s infinite linear;
+  border-width: 6px;
+  opacity: 0.5;
+}
+
+@keyframes trinity-rings-spinner-circle1-animation {
+  0% {
+    transform: rotateZ(20deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateZ(100deg) rotateY(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle2-animation {
+  0% {
+    transform: rotateZ(100deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle3-animation {
+  0% {
+    transform: rotateZ(100deg) rotateX(-360deg);
+  }
+  100% {
+    transform: rotateZ(-360deg) rotateX(360deg);
+  }
+}
+
+.loading-text-div {
+  box-sizing: border-box;
+  position: absolute;
+  font-size: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #fffc00;
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+.loader__dot {
+  animation: 1s blink infinite;
+}
+.loader__dot:nth-child(2) {
+  animation-delay: 250ms;
+}
+.loader__dot:nth-child(3) {
+  animation-delay: 500ms;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.25s, opacity 0.25s linear;
+}
+
+.fade-out {
+  animation: fade-out-animation 0.75s 1;
+  /* animation-duration: 0.25s; */
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out-animation {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+    display: none;
+    visibility: "hidden";
+    cursor: default;
+  }
+}
