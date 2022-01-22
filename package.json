@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --output-public-path=/build/  --mode development --progress --open --hot",
     "build": "webpack --mode production --progress",
     "start": "node server.js",
+    "deploy": "bash deploy.sh",
     "heroku-postbuild": "webpack -p"
   },
   "keywords": [],
