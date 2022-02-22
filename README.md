@@ -1,15 +1,10 @@
+# 3d个人网站
 
-# 0成本搭建一个3d网站实例
+最终效果：[love.huabyte.com](love.huabyte.com)
 
-## `拿源码前b站视频三连了吗`(创作不易，求支持，呜呜呜)
+<video autoplay src="https://assets.huabyte.com/blog/image/Tab-1645529042263.webm"></video>
 
-## 后期会一直坚持出好的内容的，也欢迎大家star，学生党也可以加我QQ: 3301833942一起交流学习都可以鸭
-
-我自己的3d网站也是根据国外大佬改的，上个视频可能开头没说明，产生一些误会，这里先放大佬源码地址：[https://github.com/0xFloyd/Portfolio_2020](https://github.com/0xFloyd/Portfolio_2020)
-
-我自己的源码地址(基于上面有些添加中文注释和一些改变)：[https://github.com/AirHua-byte/AirHua-byte.github.io ](https://github.com/AirHua-byte/AirHua-byte.github.io )
-
-## 搭建教程主要面对网站搭建新手
+我自己的3d网站也是根据国外大佬改的，这里先放大佬源码地址：[https://github.com/0xFloyd/Portfolio_2020](https://github.com/0xFloyd/Portfolio_2020)
 
 ## 项目环境
 
@@ -159,10 +154,3 @@ git push -f git@github.com:AirHua-byte/AirHua-byte.github.io.git main
 ```
 
 就可以运行`npm run deploy`实现自动化部署啦。
-
-## 写在最后
-
-搭建成功回来交作业呀(狗头)，如果对你有帮助给个三连+关注吧，github可以给个star最好了，真的非常感谢大家的支持，我会更加努力，b站账号后面应该会更比较多发现的一些有意思的项目，争取给大家也带来有用的东西。
-
-鞠躬...
-
