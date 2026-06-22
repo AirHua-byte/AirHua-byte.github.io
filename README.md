@@ -1,181 +1,227 @@
-# 3d个人网站
+# AirHua-byte.github.io
 
-An open-source Three.js/WebGL personal website template for building an
-interactive 3D portfolio and deploying it with GitHub Pages.
+[English](./README.md) | [简体中文](./README.zh-CN.md)
 
-## Open Source Status
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](./LICENSE)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black)](https://threejs.org/)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=github)](https://pages.github.com/)
+[![Stars](https://img.shields.io/github/stars/AirHua-byte/AirHua-byte.github.io?style=social)](https://github.com/AirHua-byte/AirHua-byte.github.io/stargazers)
 
-- Maintainer: [AirHua-byte](https://github.com/AirHua-byte)
-- Repository: <https://github.com/AirHua-byte/AirHua-byte.github.io>
-- Live demo: <https://airhua-byte.github.io>
-- License: ISC
-- Focus: Three.js learning, WebGL portfolio customization, and GitHub Pages deployment
+A Three.js/WebGL personal website template for interactive 3D portfolios on GitHub Pages.
 
-## Maintenance Plan
+This repository is a reusable 3D portfolio starter built with Three.js, Ammo.js
+physics, custom textures, shader assets, and a Webpack-based static deployment
+workflow. It is designed for front-end developers who want a playful personal
+site that can be customized with their own links, billboard images, skills, and
+project entries.
 
-This project is maintained as a reusable learning template for front-end
-developers who want to customize a Three.js personal website. Current
-maintenance priorities are:
+## Table of Contents
 
-- keep setup and deployment documentation clear for new users;
-- triage dependency and security issues as they appear;
-- improve compatibility notes for modern Node.js versions;
-- accept focused fixes for docs, build issues, and asset customization.
+- [Live Demo](#live-demo)
+- [Highlights](#highlights)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Customization Guide](#customization-guide)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Maintenance Status](#maintenance-status)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Credits](#credits)
+- [License](#license)
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before
-opening issues or pull requests.
+## Live Demo
 
-最终效果：[love.huabyte.com](love.huabyte.com)
+- GitHub Pages: <https://airhua-byte.github.io>
+- Personal demo: <https://love.huabyte.com>
+- Preview video: <https://assets.huabyte.com/blog/image/Tab-1645529042263.webm>
 
-<video autoplay src="https://assets.huabyte.com/blog/image/Tab-1645529042263.webm"></video>
+## Highlights
 
-我自己的3d网站也是根据国外大佬改的，这里先放大佬源码地址：[https://github.com/0xFloyd/Portfolio_2020](https://github.com/0xFloyd/Portfolio_2020)
+- Immersive 3D scene rendered with Three.js and WebGL.
+- Physics-driven rolling globe interaction powered by Ammo.js.
+- Desktop keyboard controls and mobile-friendly touch controls.
+- Clickable 3D objects that link to your GitHub, blog, music site, email, and
+  other personal destinations.
+- Configurable billboard textures for projects or personal sections.
+- Shader, lens flare, particles, and surface text assets for a richer visual
+  portfolio.
+- Static output that can be deployed to GitHub Pages or any static hosting
+  provider.
 
-## 项目环境
+## Tech Stack
 
-安装node8.0+, 没有安装node可以前往[官网](https://nodejs.org/zh-cn/)安装
+- JavaScript
+- Three.js
+- Ammo.js
+- WebGL shaders
+- Webpack 4
+- Express, optional local/static server
 
-安装一个编辑器，推荐[vscode](https://code.visualstudio.com/)
+## Quick Start
 
-> 实不会的参考一下教程，也可以自行搜索
->
-> node安装与配置：[https://www.bilibili.com/video/BV11V411o7Zh](https://www.bilibili.com/video/BV11V411o7Zh)
->
-> vscode安装与配置：[https://www.bilibili.com/video/BV1P64y187Fh](https://www.bilibili.com/video/BV1P64y187Fh)
+### Prerequisites
 
-## 项目运行
+- Node.js 14 or 16 is recommended for this legacy Webpack 4 project.
+- npm
 
+> Node.js 17+ may require `NODE_OPTIONS=--openssl-legacy-provider` for older
+> Webpack 4 builds. If you only want to customize the static assets, start with
+> Node.js 16 to avoid the OpenSSL compatibility issue.
+
+### Install
+
+```bash
+npm install
 ```
-// 安装依赖
-npm install & cnpm install
 
-// 本地运行
+### Run Locally
+
+```bash
 npm run dev
+```
 
-// 打包
+The development server runs at:
+
+```text
+http://localhost:8082
+```
+
+### Build
+
+```bash
 npm run build
 ```
 
-## 代码
+### Serve the Static Site
 
-+ 如果没有接触过`three.js`想对这个网站修改，可以看看官方文档，我的博客也有three相关文档，最近正在更新，以前写在本地没上传。
+```bash
+npm start
+```
 
-+ 如果拿这个网站作为模板直接修改成自己的网站的话，关注以下`代码部分`，图片可以直接拖到PS中修改成自己的导出`png`透明格式替换即可。
+## Customization Guide
+
+Most personal-site content is configured in
+[`src/resources/textures.js`](./src/resources/textures.js).
+
+### Update Project Billboards
+
+Replace these image paths with your own transparent PNG/JPG assets:
 
 ```js
-// texture.js
-
-let billboardTextures = {};
-// 第一块展板图片地址
 billboardTextures.blogTexture = '../src/jsm/blog.png';
-// 第二块展板图片地址
-billboardTextures.musicTexture =
-  '../src/jsm/music.png';
-// 第三块展板图片地址
-billboardTextures.fundTexture =
-  '../src/jsm/fund.png';
-
-let boxTexture = {};
-// 链接的图标地址
-boxTexture.Github = '../src/jsm/githubLogo.png';
-boxTexture.BiliBili = '../src/jsm/BiliBili.png';
-boxTexture.QQ = '../src/jsm/qq.png';
-boxTexture.mail = '../src/jsm/envelope.png';
-boxTexture.reactIcon = '../src/jsm/react.png';
-boxTexture.allSkills = '../src/jsm/allSkills.png';
-boxTexture.lensFlareMain = '../src/jsm/lensflare0.png';
-boxTexture.skrillex = '../src/jsm/skrillex.png';
-boxTexture.edmText = '../src/jsm/EDM.png';
-
-// 砖块材质
-let stoneTexture = '../src/jsm/stone.png';
-// 展板木头材质
-let woodTexture = '../src/jsm/woodTexture.jpg';
-
-// 文字图片地址
-let inputText = {};
-inputText.terpSolutionsText = '../src/jsm/terp-solutions-text.png';
-inputText.activities = '../src/jsm/activities_text.png';
-inputText.bagholderBetsText = '../src/jsm/bagholderbets-text.png';
-inputText.homeSweetHomeText = '../src/jsm/home-sweet-home-text.png';
-inputText.staticPortfolio = '../src/jsm/static-portfolio.png';
-inputText.pcControl = '../src/jsm/pc-control.png'
-inputText.mobileControl = '../src/jsm/mobile-control.png'
-inputText.link = '../src/jsm/link.png'
-
-//SVG
-let SVG = {};
-SVG.reactLogo = '../src/jsm/react-svg.svg';
-
-// 链接的跳转地址
-let URL = {};
-URL.blog =
-  'https://huabyte.com';
-URL.ryanfloyd = 'https://huabyte.com';
-URL.fund = 'https://github.com/AirHua-byte/FundSpider';
-URL.gitHub = 'https://github.com/AirHua-byte';
-URL.BiliBili = 'https://space.bilibili.com/450443708';
-URL.email = 'https://airhua602@gmail.com';
-URL.music = 'https://music.huabyte.com';
-URL.devTo =
-  'http://wpa.qq.com/msgrd?v=3&uin=3301833942&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:3301833942:41';
+billboardTextures.musicTexture = '../src/jsm/music.png';
+billboardTextures.fundTexture = '../src/jsm/fund.png';
 ```
 
-## 部署github-pages
+### Update Social Links
 
-### 安装git
+Change the `URL` object to point to your own destinations:
 
-不会的可以查看这个教程：[https://www.bilibili.com/video/BV12E411k74T](https://www.bilibili.com/video/BV12E411k74T)
+```js
+URL.blog = 'https://your-domain.com';
+URL.gitHub = 'https://github.com/your-name';
+URL.email = 'mailto:you@example.com';
+```
 
-接下来我们就可以部署到免费的 Github Pages 上。我们在 Github 上新建一个仓库，这里我取得仓库名为`AirHua-byte.github.io`，注意建好自己的仓库都应该是(你的用户名.github.io)
+### Replace Icons and Visual Assets
 
-![1642856469277.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1da9488e0984d94b0be2e91229d17bc~tplv-k3u1fbpfcp-watermark.image?)
+The visual assets live in [`src/jsm`](./src/jsm). Keep filenames and letter
+case consistent when replacing files, especially if you work across macOS,
+Windows, and Linux.
 
-找到`settings`下面的`pages`
+Useful asset groups:
 
-![1642856524313.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f6ef96c1e074c639580daabfb935b09~tplv-k3u1fbpfcp-watermark.image?)
+- `blog.png`, `music.png`, `fund.png`: billboard images.
+- `githubLogo.png`, `bilibili.png`, `qq.png`, `envelope.png`: link icons.
+- `pc-control.png`, `mobile-control.png`: control hint images.
+- `fragment.glsl`, `vertex.glsl`: shader sources.
+- `earth.jpg`, `woodTexture.jpg`, `stone.png`: scene textures.
 
-注意查看自己创建的分支和这里是一样的，点击`Save`保存后，过一会点击链接就出现了。
+### Scene and Interaction Files
 
-> 一般部署完需要等待几分钟访问才会有，耐心等一会就行。
+- [`src/app.js`](./src/app.js): main scene bootstrap and physics loop.
+- [`src/resources/world.js`](./src/resources/world.js): renderer, camera,
+  lights, particles, and world setup.
+- [`src/resources/surfaces.js`](./src/resources/surfaces.js): text and surface
+  elements.
+- [`src/resources/eventHandlers.js`](./src/resources/eventHandlers.js): desktop
+  and mobile controls.
+- [`src/resources/utils.js`](./src/resources/utils.js): picking, hover, click,
+  and camera helpers.
 
-![1642856615230.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8edf097917fb4c7294fb43b6fd9fa7c0~tplv-k3u1fbpfcp-watermark.image?)
+## Project Structure
 
-## 自动化脚本部署
+```text
+.
+├── build/                  # Generated static bundle
+├── src/
+│   ├── app.js              # Main application entry
+│   ├── WebGL.js            # WebGL capability check
+│   ├── jsm/                # Textures, icons, fonts, shaders
+│   ├── libs/               # Ammo.js runtime files
+│   └── resources/          # Scene, controls, textures, utilities
+├── index.html              # Static entry page
+├── style.css               # Global page styles
+├── webpack.config.js       # Webpack build configuration
+├── server.js               # Optional Express static server
+└── deploy.sh               # Manual GitHub Pages deployment helper
+```
 
-可以把这个`shell`脚本放到项目目录中，新建`deploy.sh`,将仓库git地址修改成你自己的
+## Deployment
 
-```shell
-#!/usr/bin/env sh
+### GitHub Pages
 
-# 确保脚本抛出遇到的错误
-set -e
+For a user or organization page, publish the repository as:
 
-# 生成静态文件
+```text
+<username>.github.io
+```
+
+Then enable GitHub Pages in repository settings and select the branch/folder
+that contains your built static files.
+
+### Manual Deploy Script
+
+This repository includes [`deploy.sh`](./deploy.sh). Review the target Git URL
+inside that file before using it for your own fork.
+
+```bash
 npm run build
-
-# 如果是发布到自定义域名
-# echo 'www.yourwebsite.com' > CNAME
-
-git init
-git add -A
-git commit -m 'deploy'
-
-# 如果你想要部署到 https://USERNAME.github.io
-git push -f git@github.com:AirHua-byte/AirHua-byte.github.io.git main
-
-# 如果发布到 https://USERNAME.github.io/<REPO>  REPO=github上的项目
-# git push -f git@github.com:USERNAME/<REPO>.git master:gh-pages
-
+npm run deploy
 ```
 
-然后在config.json中加入
+## Maintenance Status
 
-```
-"scripts": {
-	...
-    "deploy": "bash deploy.sh"
-  },
-```
+This project is maintained as a learning-friendly Three.js/WebGL portfolio
+template.
 
-就可以运行`npm run deploy`实现自动化部署啦。
+Current maintenance priorities:
+
+- keep the setup and deployment documentation clear;
+- triage dependency and security issues;
+- document compatibility notes for modern Node.js versions;
+- accept focused fixes for docs, build issues, and customization examples.
+
+## Contributing
+
+Issues and pull requests are welcome when they are focused on documentation,
+build compatibility, asset customization, or security/dependency maintenance.
+
+Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
+
+## Security
+
+Please do not open public issues for sensitive security reports. See
+[SECURITY.md](./SECURITY.md) for the reporting process.
+
+## Credits
+
+This project was adapted from and inspired by
+[0xFloyd/Portfolio_2020](https://github.com/0xFloyd/Portfolio_2020). Thanks to
+the Three.js community and the open-source examples that make WebGL learning
+more approachable.
+
+## License
+
+[ISC](./LICENSE) © AirHua-byte.
