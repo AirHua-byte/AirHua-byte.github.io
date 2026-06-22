@@ -1,7 +1,7 @@
 {
   "name": "3d-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Three.js/WebGL personal website template for interactive 3D portfolios on GitHub Pages.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +11,23 @@
     "deploy": "bash deploy.sh",
     "heroku-postbuild": "webpack -p"
   },
-  "keywords": [],
+  "keywords": [
+    "threejs",
+    "webgl",
+    "portfolio",
+    "github-pages",
+    "personal-website"
+  ],
   "author": "AirHua-byte",
   "license": "ISC",
+  "homepage": "https://airhua-byte.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AirHua-byte/AirHua-byte.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AirHua-byte/AirHua-byte.github.io/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/polyfill": "^7.4.3",

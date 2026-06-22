@@ -1,5 +1,30 @@
 # 3d个人网站
 
+An open-source Three.js/WebGL personal website template for building an
+interactive 3D portfolio and deploying it with GitHub Pages.
+
+## Open Source Status
+
+- Maintainer: [AirHua-byte](https://github.com/AirHua-byte)
+- Repository: <https://github.com/AirHua-byte/AirHua-byte.github.io>
+- Live demo: <https://airhua-byte.github.io>
+- License: ISC
+- Focus: Three.js learning, WebGL portfolio customization, and GitHub Pages deployment
+
+## Maintenance Plan
+
+This project is maintained as a reusable learning template for front-end
+developers who want to customize a Three.js personal website. Current
+maintenance priorities are:
+
+- keep setup and deployment documentation clear for new users;
+- triage dependency and security issues as they appear;
+- improve compatibility notes for modern Node.js versions;
+- accept focused fixes for docs, build issues, and asset customization.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before
+opening issues or pull requests.
+
 最终效果：[love.huabyte.com](love.huabyte.com)
 
 <video autoplay src="https://assets.huabyte.com/blog/image/Tab-1645529042263.webm"></video>
